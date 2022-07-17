@@ -5,7 +5,7 @@ import HomeScreen from "./screens/HomeScreen";
 import "./App.scss";
 import { useState } from "react";
 import LoginScreen from "./screens/LoginScreen";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const Layout = ({children}) => {
   const [sidebar, toggleSidebar] = useState(false);

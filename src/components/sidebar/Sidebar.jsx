@@ -7,7 +7,7 @@ import {
   MdHistory,
   MdLibraryBooks,
   MdHome,
-  MdSentimentDissatisfied
+  MdExpandMore
 } from 'react-icons/md'
 
 const Sidebar = ({sidebar, handleToggleSidebar}) => {
@@ -24,8 +24,8 @@ const Sidebar = ({sidebar, handleToggleSidebar}) => {
     <span>History</span></li>
     <li><MdLibraryBooks size={23} />
     <span>Library</span></li>
-    <li><MdSentimentDissatisfied size={23} />
-    <span>I don't Know</span></li>
+    <li><MdExpandMore size={23} />
+    <span>Show More</span></li>
     <hr />
     <li><MdExitToApp size={23} />
     <span>Log Out</span></li>
