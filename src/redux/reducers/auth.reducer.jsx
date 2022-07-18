@@ -6,8 +6,8 @@ import {
 } from "../actionType";
 
 const initialState = {
-  accessToken: null,
-  user: null,
+  accessToken: sessionStorage.getItem('tubenation-accessToken') ? sessionStorage.getItem('tubenation-accessToken') : null,
+  user: sessionStorage.getItem('tubenation-user') ? JSON.parse(sessionStorage.getItem('tubenation-user')) : null,
   loading: false,
 };
 

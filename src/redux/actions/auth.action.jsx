@@ -16,7 +16,7 @@ export const login = () => async (dispatch) => {
 
     const provider = new firebase.auth.GoogleAuthProvider();
     const res = await auth.signInWithPopup(provider);
-    console.log(res);
+    // console.log(res);
 
     const accessToken = res.credential.accessToken;
 
@@ -24,6 +24,9 @@ export const login = () => async (dispatch) => {
       name: res.additionalUserInfo.profile.name,
       photoURL: res.additionalUserInfo.profile.picture,
     };
+
+    sessionStorage.setItem('tubenation-accessToken', accessToken)
+    sessionStorage.setItem('tubenation-user', JSON.stringify(profile))
 
     dispatch({
       type: LOGIN_SUCCESS,
