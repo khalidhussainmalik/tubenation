@@ -6,6 +6,7 @@ import {
   LOGIN_PROFILE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  LOG_OUT,
 } from "../actionType";
 
 export const login = () => async (dispatch) => {
@@ -45,3 +46,13 @@ export const login = () => async (dispatch) => {
     });
   }
 };
+
+export const logout = () => async (dispatch) => {
+  await auth.signOut()
+  dispatch({
+    type: LOG_OUT,
+  })
+
+  sessionStorage.removeItem('tubenation-accessToken')
+  sessionStorage.removeItem('tubenation-user')
+}

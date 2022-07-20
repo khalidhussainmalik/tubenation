@@ -3,11 +3,16 @@ import {
   LOGIN_PROFILE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  LOG_OUT,
 } from "../actionType";
 
 const initialState = {
-  accessToken: sessionStorage.getItem('tubenation-accessToken') ? sessionStorage.getItem('tubenation-accessToken') : null,
-  user: sessionStorage.getItem('tubenation-user') ? JSON.parse(sessionStorage.getItem('tubenation-user')) : null,
+  accessToken: sessionStorage.getItem("tubenation-accessToken")
+    ? sessionStorage.getItem("tubenation-accessToken")
+    : null,
+  user: sessionStorage.getItem("tubenation-user")
+    ? JSON.parse(sessionStorage.getItem("tubenation-user"))
+    : null,
   loading: false,
 };
 
@@ -36,6 +41,13 @@ export const authReducer = (prevState = initialState, action) => {
         accessToken: null,
         loading: false,
         error: payload,
+      };
+
+    case LOG_OUT:
+      return {
+        ...prevState,
+        accessToken: null,
+        user: null,
       };
 
     default:

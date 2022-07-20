@@ -9,8 +9,16 @@ import {
   MdHome,
   MdExpandMore
 } from 'react-icons/md'
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/actions/auth.action";
 
 const Sidebar = ({sidebar, handleToggleSidebar}) => {
+
+  const dispatch = useDispatch()
+  const logOutHangler = () =>{
+dispatch(logout())
+  }
+
   return <nav className={sidebar?"sidebar open": "sidebar"}
   onClick={()=>handleToggleSidebar(false)}
   >
@@ -27,7 +35,7 @@ const Sidebar = ({sidebar, handleToggleSidebar}) => {
     <li><MdExpandMore size={23} />
     <span>Show More</span></li>
     <hr />
-    <li><MdExitToApp size={23} />
+    <li onClick={logOutHangler}><MdExitToApp size={23} />
     <span>Log Out</span></li>
     <hr />
   </nav>;
